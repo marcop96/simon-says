@@ -12,12 +12,17 @@
     <div
       class="flex flex-col h-screen w-full justify-center items-center bg-zinc-800"
     >
-      <h1 class="text-white">play</h1>
+      <h1 class="text-3xl mb-5 text-white">press Play to start</h1>
+      <button
+        class="start bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mb-3"
+      >
+        PLAY
+      </button>
       <div class="squares grid gap-0 grid-cols-2 grid-rows-2 h-64 w-64">
-        <div class="w-full h-full bg-blue-500 hover:bg-blue-900"></div>
-        <div class="w-full h-full bg-red-500 hover:bg-red-900"></div>
-        <div class="w-full h-full bg-green-500 hover:bg-green-900"></div>
-        <div class="w-full h-full bg-yellow-500 hover:bg-yellow-900"></div>
+        <div class="square w-full h-full bg-blue-500"></div>
+        <div class="square w-full h-full bg-red-500"></div>
+        <div class="square w-full h-full bg-green-500"></div>
+        <div class="square w-full h-full bg-yellow-500"></div>
       </div>
     </div>
 
