@@ -1,13 +1,14 @@
-const $roundText = document.querySelector(".round-text");
-const $turnText = document.querySelector(".turn-text");
+const $ROUND_TEXT = document.querySelector(".round-text");
+const $TURN_TEXT = document.querySelector(".turn-text");
 const $PlayButton = document.querySelector(".btn-start");
-const $startText = document.querySelector(".start-text");
+const $START_TEXT = document.querySelector(".start-text");
 let gameStarted = false;
 let round = 0;
-const $blue = document.querySelector("#blue");
-const $red = document.querySelector("#red");
-const $green = document.querySelector("#green");
-const $yellow = document.querySelector("#yellow");
+let CPUTurn = [];
+const $BLUE_SQUARE = document.querySelector("#blue");
+const $RED_SQUARE = document.querySelector("#red");
+const $GREEN_SQUARE = document.querySelector("#green");
+const $YELLOW_SQUARE = document.querySelector("#yellow");
 $PlayButton.onclick = function () {
   prepareStartGame();
   startGame();
@@ -18,38 +19,45 @@ function prepareStartGame() {
   gameStarted = true;
   if (gameStarted == true) {
     $PlayButton.classList.add("hidden");
-    $startText.classList.add("hidden");
+    $START_TEXT.classList.add("hidden");
   }
 }
 
 function startGame() {
-  $turnText.classList.remove("hidden");
-  $roundText.classList.remove("hidden");
+  $TURN_TEXT.classList.remove("hidden");
+  $ROUND_TEXT.classList.remove("hidden");
   round++;
 }
 
 function computerTurn() {
-  $roundText.innerText = `round ${round}`;
-  let CPUTurn = [];
+  $ROUND_TEXT.innerText = `round ${round}`;
+
   let random = Math.floor(Math.random() * 4);
   CPUTurn.push(random);
   console.log(CPUTurn);
   if (random === 0) {
-    highlight($blue);
+    highlight($BLUE_SQUARE);
+    return;
   }
   if (random === 1) {
-    highlight($red);
+    highlight($RED_SQUARE);
+    return;
   }
   if (random === 2) {
-    highlight($green);
+    highlight($GREEN_SQUARE);
+    return;
   }
   if (random === 3) {
-    highlight($yellow);
+    highlight($YELLOW_SQUARE);
+    return;
   }
+  return CPUTurn.push(random);
 }
 
 function highlight(square) {
   square.classList.toggle("bg-white");
 
-  //   setTimeout(square.classList.toggle("bg-white"), 300);
+  setTimeout(function () {
+    square.classList.toggle("bg-white");
+  }, 1000);
 }
