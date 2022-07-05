@@ -1,13 +1,17 @@
+const $roundText = document.querySelector(".round-text");
+const $turnText = document.querySelector(".turn-text");
 const $PlayButton = document.querySelector(".btn-start");
+const $startText = document.querySelector(".start-text");
 let gameStarted = false;
+let round = 0;
+
 $PlayButton.onclick = function () {
   prepareStartGame();
   startGame();
-  let CPUTurn = [];
+  computerTurn();
 };
 
 function prepareStartGame() {
-  const $startText = document.querySelector(".start-text");
   gameStarted = true;
   if (gameStarted == true) {
     $PlayButton.classList.add("hidden");
@@ -16,8 +20,13 @@ function prepareStartGame() {
 }
 
 function startGame() {
-  const $roundText = document.querySelector(".round-text");
-  const $turnText = document.querySelector(".turn-text");
   $turnText.classList.remove("hidden");
   $roundText.classList.remove("hidden");
+  round++;
+}
+
+function computerTurn() {
+  $roundText.innerText = `round ${round}`;
+  let CPUTurn = [];
+  console.log(CPUTurn);
 }
