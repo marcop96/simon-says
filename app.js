@@ -31,5 +31,25 @@ function startGame() {
 function computerTurn() {
   $roundText.innerText = `round ${round}`;
   let CPUTurn = [];
+  let random = Math.floor(Math.random() * 4);
+  CPUTurn.push(random);
   console.log(CPUTurn);
+  if (random === 0) {
+    highlight($blue);
+  }
+  if (random === 1) {
+    highlight($red);
+  }
+  if (random === 2) {
+    highlight($green);
+  }
+  if (random === 3) {
+    highlight($yellow);
+  }
+}
+
+function highlight(square) {
+  square.classList.toggle("bg-white");
+
+  //   setTimeout(square.classList.toggle("bg-white"), 300);
 }
