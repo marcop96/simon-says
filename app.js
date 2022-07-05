@@ -1,7 +1,9 @@
 const $PlayButton = document.querySelector(".btn-start");
-let gameStarted = new Boolean(false);
+let gameStarted = false;
 $PlayButton.onclick = function () {
   prepareStartGame();
+  startGame();
+  let CPUTurn = [];
 };
 
 function prepareStartGame() {
@@ -13,4 +15,9 @@ function prepareStartGame() {
   }
 }
 
-console.log(gameStarted);
+function startGame() {
+  const $roundText = document.querySelector(".round-text");
+  const $turnText = document.querySelector(".turn-text");
+  $turnText.classList.remove("hidden");
+  $roundText.classList.remove("hidden");
+}
