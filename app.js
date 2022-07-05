@@ -4,7 +4,10 @@ const $PlayButton = document.querySelector(".btn-start");
 const $startText = document.querySelector(".start-text");
 let gameStarted = false;
 let round = 0;
-
+const $blue = document.querySelector("#blue");
+const $red = document.querySelector("#red");
+const $green = document.querySelector("#green");
+const $yellow = document.querySelector("#yellow");
 $PlayButton.onclick = function () {
   prepareStartGame();
   startGame();
