@@ -34,7 +34,7 @@ function startGame() {
 }
 
 function computerTurn() {
-  $ROUND_TEXT.innerText = `round ${round}`;
+  $ROUND_TEXT.innerText = `Round ${round}`;
   $TURN_TEXT.innerText = "CPU Turn";
 
   enableInputs(false);

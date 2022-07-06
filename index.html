@@ -18,24 +18,31 @@
       >
         PLAY
       </button>
+      <!-- <div
+        class="bg-white border-black border-2 col-span-2 rounded-full text-center w-10 h-10 justify-self-center self-center m-0"
+      >
+        0
+      </div> -->
       <h1 class="round-text text-white hidden">Round 0</h1>
       <h1 class="turn-text text-white hidden">CPU turn</h1>
-      <div class="squares grid gap-0 grid-cols-2 grid-rows-2 h-64 w-64">
+
+      <div class="squares grid gap-0 grid-cols-2 relative">
         <div
           id="blue"
-          class="square w-full h-full bg-blue-500 rounded-tl-lg transition duration-500 ease-in-out"
+          class="square bg-blue-500 rounded-tl-lg transition duration-500 ease-in-out h-32 w-32"
         ></div>
         <div
           id="red"
-          class="square w-full h-full bg-red-500 rounded-tr-lg transition duration-500 ease-in-out"
+          class="square bg-red-500 rounded-tr-lg transition duration-500 ease-in-out h-32 w-32"
         ></div>
+
         <div
           id="green"
-          class="square w-full h-full bg-green-500 rounded-bl-lg transition duration-500 ease-in-out"
+          class="square bg-green-500 rounded-bl-lg transition duration-500 ease-in-out h-32 w-32"
         ></div>
         <div
           id="yellow"
-          class="square w-full h-full bg-yellow-500 rounded-br-lg transition duration-500 ease-in-out"
+          class="square bg-yellow-500 rounded-br-lg transition duration-500 ease-in-out h-32 w-32"
         ></div>
       </div>
     </div>
