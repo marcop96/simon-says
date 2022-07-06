@@ -26,6 +26,8 @@ basic UI simon says
 //cambia el color del cuadrado correspondiente
 // set timeout vuelve al color normal
 
+//ejecuta foreach
+
 //ejecuta resaltar cuadrado array.length del turno cpu
 
 //empieza el usuario
