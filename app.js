@@ -4,18 +4,21 @@ const $PLAY_BUTTON = document.querySelector(".btn-start");
 const $START_TEXT = document.querySelector(".start-text");
 let gameStarted = false;
 let round = 0;
-let CPUTurn = [0, 2];
+let CPUMoves = [];
+let HumanMoves = [];
 const $BLUE_SQUARE = document.querySelector("#blue");
 const $RED_SQUARE = document.querySelector("#red");
 const $GREEN_SQUARE = document.querySelector("#green");
 const $YELLOW_SQUARE = document.querySelector("#yellow");
+const $SQUARES = document.querySelectorAll(".square");
+
 const LIGHT_DURATION = 1000;
 const MOVE_DURATION = 2000;
 $PLAY_BUTTON.onclick = function () {
   prepareStartGame();
   startGame();
   computerTurn();
-  setTimeout(humanTurn, CPUTurn.length * 2000);
+  setTimeout(humanTurn, CPUMoves.length * MOVE_DURATION);
 };
 
 function prepareStartGame() {
@@ -34,32 +37,50 @@ function startGame() {
 
 function computerTurn() {
   $ROUND_TEXT.innerText = `round ${round}`;
+  enableInputs(false);
 
   let move = Math.floor(Math.random() * 4);
-  CPUTurn.push(move);
+  CPUMoves.push(move);
   //I es indice de cada movimiento (array)
-  CPUTurn.forEach((move, i) => {
-    if (move === 0) {
-      highlight($BLUE_SQUARE, i);
-    } else if (move === 1) {
-      highlight($RED_SQUARE, i);
-    } else if (move === 2) {
-      highlight($GREEN_SQUARE, i);
-    } else if (move === 3) {
-      highlight($YELLOW_SQUARE, i);
-    }
+  CPUMoves.forEach((move, i) => {
+    highlight($SQUARES[move], i * MOVE_DURATION);
   });
 }
 
-function highlight(square, i) {
+function highlight(square, delay) {
   setTimeout(function () {
     square.classList.toggle("bg-white");
     setTimeout(function () {
       square.classList.toggle("bg-white");
     }, LIGHT_DURATION);
-  }, i * MOVE_DURATION);
+  }, delay);
 }
 
 function humanTurn() {
   $TURN_TEXT.innerText = "Your turn";
+  HumanMoves = [];
+  enableInputs(true);
+}
+
+function enableInputs(enabled = true) {
+  $SQUARES.forEach(function (square) {
+    square.onclick = handleClick;
+  });
+}
+
+function handleClick(e) {
+  highlight(e.target, 0);
+
+  if (e.target.id == "blue") {
+    move = 0;
+  }
+  if (e.target.id == "red") {
+    move = 1;
+  }
+  if (e.target.id == "green") {
+    move = 2;
+  }
+  if (e.target.id == "yellow") {
+    move = 3;
+  }
 }
