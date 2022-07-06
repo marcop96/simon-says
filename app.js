@@ -64,7 +64,11 @@ function humanTurn() {
 
 function enableInputs(enabled = true) {
   $SQUARES.forEach(function (square) {
-    square.onclick = handleClick;
+    if (enabled) {
+      square.onclick = handleClick;
+    } else {
+      square.onclick = function () {};
+    }
   });
 }
 
@@ -86,8 +90,12 @@ function handleClick(e) {
   HumanMoves.forEach((move, i) => {
     if (move != CPUMoves[i]) {
       gameOver();
+      return;
     }
   });
+  if (HumanMoves.length === CPUMoves.length) {
+    enableInputs(false);
+  }
 }
 
 function gameOver() {
