@@ -1,6 +1,6 @@
 const $ROUND_TEXT = document.querySelector(".round-text");
 const $TURN_TEXT = document.querySelector(".turn-text");
-const $PlayButton = document.querySelector(".btn-start");
+const $PLAY_BUTTON = document.querySelector(".btn-start");
 const $START_TEXT = document.querySelector(".start-text");
 let gameStarted = false;
 let round = 0;
@@ -9,16 +9,17 @@ const $BLUE_SQUARE = document.querySelector("#blue");
 const $RED_SQUARE = document.querySelector("#red");
 const $GREEN_SQUARE = document.querySelector("#green");
 const $YELLOW_SQUARE = document.querySelector("#yellow");
-$PlayButton.onclick = function () {
+$PLAY_BUTTON.onclick = function () {
   prepareStartGame();
   startGame();
   computerTurn();
+  humanTurn();
 };
 
 function prepareStartGame() {
   gameStarted = true;
   if (gameStarted == true) {
-    $PlayButton.classList.add("hidden");
+    $PLAY_BUTTON.classList.add("hidden");
     $START_TEXT.classList.add("hidden");
   }
 }
@@ -60,4 +61,8 @@ function highlight(square) {
   setTimeout(function () {
     square.classList.toggle("bg-white");
   }, 1000);
+}
+
+function humanTurn() {
+  $TURN_TEXT.innerText = "Your turn";
 }
