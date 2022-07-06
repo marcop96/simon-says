@@ -72,15 +72,20 @@ function handleClick(e) {
   highlight(e.target, 0);
 
   if (e.target.id == "blue") {
-    move = 0;
+    HumanMoves.push(0);
   }
   if (e.target.id == "red") {
-    move = 1;
+    HumanMoves.push(1);
   }
   if (e.target.id == "green") {
-    move = 2;
+    HumanMoves.push(2);
   }
   if (e.target.id == "yellow") {
-    move = 3;
+    HumanMoves.push(3);
   }
+  HumanMoves.forEach((move, i) => {
+    if (move != CPUMoves[i]) {
+      alert("u lost");
+    }
+  });
 }
