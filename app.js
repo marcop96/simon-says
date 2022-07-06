@@ -4,16 +4,18 @@ const $PLAY_BUTTON = document.querySelector(".btn-start");
 const $START_TEXT = document.querySelector(".start-text");
 let gameStarted = false;
 let round = 0;
-let CPUTurn = [];
+let CPUTurn = [0, 2];
 const $BLUE_SQUARE = document.querySelector("#blue");
 const $RED_SQUARE = document.querySelector("#red");
 const $GREEN_SQUARE = document.querySelector("#green");
 const $YELLOW_SQUARE = document.querySelector("#yellow");
+const LIGHT_DURATION = 1000;
+const MOVE_DURATION = 2000;
 $PLAY_BUTTON.onclick = function () {
   prepareStartGame();
   startGame();
   computerTurn();
-  humanTurn();
+  setTimeout(humanTurn, CPUTurn.length * 2000);
 };
 
 function prepareStartGame() {
@@ -33,34 +35,29 @@ function startGame() {
 function computerTurn() {
   $ROUND_TEXT.innerText = `round ${round}`;
 
-  let random = Math.floor(Math.random() * 4);
-  CPUTurn.push(random);
-  console.log(CPUTurn);
-  if (random === 0) {
-    highlight($BLUE_SQUARE);
-    return;
-  }
-  if (random === 1) {
-    highlight($RED_SQUARE);
-    return;
-  }
-  if (random === 2) {
-    highlight($GREEN_SQUARE);
-    return;
-  }
-  if (random === 3) {
-    highlight($YELLOW_SQUARE);
-    return;
-  }
-  return CPUTurn.push(random);
+  let move = Math.floor(Math.random() * 4);
+  CPUTurn.push(move);
+  //I es indice de cada movimiento (array)
+  CPUTurn.forEach((move, i) => {
+    if (move === 0) {
+      highlight($BLUE_SQUARE, i);
+    } else if (move === 1) {
+      highlight($RED_SQUARE, i);
+    } else if (move === 2) {
+      highlight($GREEN_SQUARE, i);
+    } else if (move === 3) {
+      highlight($YELLOW_SQUARE, i);
+    }
+  });
 }
 
-function highlight(square) {
-  square.classList.toggle("bg-white");
-
+function highlight(square, i) {
   setTimeout(function () {
     square.classList.toggle("bg-white");
-  }, 1000);
+    setTimeout(function () {
+      square.classList.toggle("bg-white");
+    }, LIGHT_DURATION);
+  }, i * MOVE_DURATION);
 }
 
 function humanTurn() {
