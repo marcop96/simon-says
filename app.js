@@ -87,6 +87,7 @@ function handleClick(e) {
   if (e.target.id == "yellow") {
     HumanMoves.push(3);
   }
+  console.log(HumanMoves);
   HumanMoves.forEach((move, i) => {
     if (move != CPUMoves[i]) {
       gameOver();
@@ -105,6 +106,7 @@ function gameOver() {
   $START_TEXT.classList.remove("hidden");
   round = 0;
   CPUMoves = [];
+  enableInputs(false);
 }
 
 function playRound() {
