@@ -85,7 +85,15 @@ function handleClick(e) {
   }
   HumanMoves.forEach((move, i) => {
     if (move != CPUMoves[i]) {
-      alert("u lost");
+      gameOver();
     }
   });
+}
+
+function gameOver() {
+  alert("You lost");
+  $PLAY_BUTTON.classList.remove("hidden");
+  $START_TEXT.classList.remove("hidden");
+  round = 0;
+  CPUMoves = [];
 }
