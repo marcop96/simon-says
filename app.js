@@ -12,13 +12,12 @@ const $GREEN_SQUARE = document.querySelector("#green");
 const $YELLOW_SQUARE = document.querySelector("#yellow");
 const $SQUARES = document.querySelectorAll(".square");
 
-const LIGHT_DURATION = 1000;
-const MOVE_DURATION = 2000;
+const LIGHT_DURATION = 250;
+const MOVE_DURATION = 500;
 $PLAY_BUTTON.onclick = function () {
   prepareStartGame();
   startGame();
-  computerTurn();
-  setTimeout(humanTurn, CPUMoves.length * MOVE_DURATION);
+  playRound();
 };
 
 function prepareStartGame() {
@@ -32,11 +31,12 @@ function prepareStartGame() {
 function startGame() {
   $TURN_TEXT.classList.remove("hidden");
   $ROUND_TEXT.classList.remove("hidden");
-  round++;
 }
 
 function computerTurn() {
   $ROUND_TEXT.innerText = `round ${round}`;
+  $TURN_TEXT.innerText = "CPU Turn";
+
   enableInputs(false);
 
   let move = Math.floor(Math.random() * 4);
@@ -95,6 +95,7 @@ function handleClick(e) {
   });
   if (HumanMoves.length === CPUMoves.length) {
     enableInputs(false);
+    setTimeout(playRound, MOVE_DURATION);
   }
 }
 
@@ -104,4 +105,10 @@ function gameOver() {
   $START_TEXT.classList.remove("hidden");
   round = 0;
   CPUMoves = [];
+}
+
+function playRound() {
+  round++;
+  computerTurn();
+  setTimeout(humanTurn, CPUMoves.length * MOVE_DURATION);
 }
