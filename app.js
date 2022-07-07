@@ -99,7 +99,6 @@ function handleClick(e) {
   if (e.target.id == "yellow") {
     HumanMoves.push(3);
   }
-  console.log(HumanMoves);
   HumanMoves.forEach((move, i) => {
     //compares the human moves to the cpu moves
     if (move != CPUMoves[i]) {
@@ -116,7 +115,7 @@ function handleClick(e) {
 
 function gameOver() {
   //displays alert (WIP SHOULD NOT BE AN ALERT)
-  alert("You lost");
+  $START_TEXT.innerText = "You lost";
   //restarts UI and CPU array
   $PLAY_BUTTON.classList.remove("hidden");
   $START_TEXT.classList.remove("hidden");
