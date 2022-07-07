@@ -114,11 +114,12 @@ function handleClick(e) {
 }
 
 function gameOver() {
-  //displays alert (WIP SHOULD NOT BE AN ALERT)
   $START_TEXT.innerText = "You lost";
   //restarts UI and CPU array
   $PLAY_BUTTON.classList.remove("hidden");
   $START_TEXT.classList.remove("hidden");
+  $TURN_TEXT.classList.add("hidden");
+  $ROUND_TEXT.innerText = `You reached round ${round}`;
   round = 0;
   CPUMoves = [];
   enableInputs(false);
