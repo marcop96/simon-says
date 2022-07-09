@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Simon Says!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="flex flex-col h-screen w-full justify-center items-center bg-zinc-800"
+    >
+      <h1 class="start-text text-3xl mb-5 text-white">press Play to start</h1>
+      <button
+        class="btn btn-start bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mb-3"
+      >
+        PLAY
+      </button>
+      <!-- <div
+        class="bg-white border-black border-2 col-span-2 rounded-full text-center w-10 h-10 justify-self-center self-center m-0"
+      >
+        0
+      </div> -->
+      <h1 class="round-text text-white hidden">Round 0</h1>
+      <h1 class="turn-text text-white hidden">CPU turn</h1>
+
+      <div class="squares grid gap-0 grid-cols-2 relative">
+        <div
+          id="blue"
+          class="square bg-blue-500 rounded-tl-lg transition duration-500 ease-in-out h-32 w-32"
+        ></div>
+        <div
+          id="red"
+          class="square bg-red-500 rounded-tr-lg transition duration-500 ease-in-out h-32 w-32"
+        ></div>
+
+        <div
+          id="green"
+          class="square bg-green-500 rounded-bl-lg transition duration-500 ease-in-out h-32 w-32"
+        ></div>
+        <div
+          id="yellow"
+          class="square bg-yellow-500 rounded-br-lg transition duration-500 ease-in-out h-32 w-32"
+        ></div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
