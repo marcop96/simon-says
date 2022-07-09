@@ -44,7 +44,7 @@ function computerTurn() {
   //disables user inputs
   enableInputs(false);
   //generates a random number and pushes into CPUMoves array
-  let move = Math.floor(Math.random() * 4);
+  let move = Math.floor(Math.random() * $SQUARES.length);
   CPUMoves.push(move);
   //highlights every single square with the correspondent delay
   CPUMoves.forEach((move, i) => {
