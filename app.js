@@ -85,7 +85,7 @@ function enableInputs(enabled = true) {
 
 function handleClick(e) {
   // links the squares with respective IDs and pushes them into human array accordingly
-  highlight(e.target, 0);
+  highlight(e.target, 0); // e.target=square, 0 =delay
 
   if (e.target.id == "blue") {
     HumanMoves.push(0);
