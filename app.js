@@ -7,10 +7,6 @@ let round = 0;
 //saves moves into arrays to then iterate and compare
 let CPUMoves = [];
 let HumanMoves = [];
-// const $BLUE_SQUARE = document.querySelector("#blue");
-// const $RED_SQUARE = document.querySelector("#red");
-// const $GREEN_SQUARE = document.querySelector("#green");
-// const $YELLOW_SQUARE = document.querySelector("#yellow");
 const $SQUARES = document.querySelectorAll(".square");
 
 //delay for the highlight functions
