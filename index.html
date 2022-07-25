@@ -11,38 +11,45 @@
   <body>
     <div
       class="flex flex-col h-screen w-full justify-center items-center bg-zinc-800"
+      data-cy="main-container"
     >
-      <h1 class="start-text text-3xl mb-5 text-white">press Play to start</h1>
+      <h1 class="start-text text-3xl mb-5 text-white" data-cy="play-text">
+        press Play to start
+      </h1>
       <button
         class="btn btn-start bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mb-3"
+        data-cy="play-button"
       >
         PLAY
       </button>
-      <!-- <div
-        class="bg-white border-black border-2 col-span-2 rounded-full text-center w-10 h-10 justify-self-center self-center m-0"
-      >
-        0
-      </div> -->
-      <h1 class="round-text text-white hidden">Round 0</h1>
-      <h1 class="turn-text text-white hidden">CPU turn</h1>
 
-      <div class="squares grid gap-0 grid-cols-2 relative">
+      <h1 class="round-text text-white hidden" data-cy="round-text">Round 0</h1>
+      <h1 class="turn-text text-white hidden" data-cy="turn-text">CPU turn</h1>
+
+      <div
+        class="squares grid gap-0 grid-cols-2 relative"
+        data-cy="squares-container"
+      >
         <div
           id="blue"
           class="square bg-blue-500 rounded-tl-lg transition duration-500 ease-in-out h-32 w-32"
+          data-cy="blue-square"
         ></div>
         <div
           id="red"
           class="square bg-red-500 rounded-tr-lg transition duration-500 ease-in-out h-32 w-32"
+          data-cy="red-square"
         ></div>
 
         <div
           id="green"
           class="square bg-green-500 rounded-bl-lg transition duration-500 ease-in-out h-32 w-32"
+          data-cy="green-square"
         ></div>
         <div
           id="yellow"
           class="square bg-yellow-500 rounded-br-lg transition duration-500 ease-in-out h-32 w-32"
+          data-cy="yellow-square"
         ></div>
       </div>
     </div>
